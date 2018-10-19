@@ -142,7 +142,7 @@ Circle.prototype.display = function(word) {
   angle = TWO_PI / npoints; //Determines the number of points
   halfAngle = angle/2.0; //Evens out the inner angles of where the star meets
   beginShape();
-  for (a = 0; a < TWO_PI; a += angle) //Determines the angle at which the brush will paint 
+  for (a = 0; a < TWO_PI; a += angle)  
   {
     // Sets the outer verticies of the star
     sx = x + cos(a) * radius2;

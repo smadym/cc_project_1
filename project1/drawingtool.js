@@ -1,3 +1,4 @@
+//I used a lot of new stuff here and I hope I used it correctly! :)
 // Random color picker
 var r, g, b
 

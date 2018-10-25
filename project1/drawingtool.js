@@ -1,5 +1,6 @@
+//I used a lot of new stuff here and I hope I used it correctly! :)
 // Random color picker
-var r, g, b
+var r, g, b;
 
 //Saves all the lines
 var lines = [];
@@ -51,7 +52,7 @@ function draw() {
 
 		// Adds new shapes and randomize
 		lines[lines.length - 1].add(current, move);
-		new1 = millis() + random(150);
+		new1 = millis() + random(10);
 
 		// Store x & y values
 		last.x = current.x;
@@ -101,7 +102,7 @@ Line.prototype.update = function(){
 
 //Decides when particles will appear and dissapear
 Line.prototype.display = function(){
-for (var i = this.circles.length - 1; i >= 0; i--){
+for (var i = this.circles.length - 5; i >= 0; i--){
 	if (this.circles[i].life <= 0) {
 		this.circles.splice(i, 1); 
 
@@ -115,7 +116,7 @@ for (var i = this.circles.length - 1; i >= 0; i--){
 function Circle(position, move, color) {
 this.position = createVector(position.x, position.y);
 this.speed = createVector(move.x, move.y);
-this.move2 = random();
+this.move2 = random(0);
 this.life = 200;
 }
 
@@ -128,10 +129,10 @@ Circle.prototype.update = function(){
 //I'm still really playing around here figuring out the lines and such
 Circle.prototype.display = function(word) {
 	strokeWeight(2);
-	stroke(0, this.life);
-	fill(r, g, b, this.life/4);
+	stroke(r, g, b, this.life);
+	fill(r, g, b, this.life/3);
 	star(this.position.x, this.position.y, 10, 10, 1.5);
-	noStroke() //remove to add lines
+	strokeWeight(2);
 	if(word){
 		line(this.position.x, this.position.y, word.position.x, word.position.y);
 	}
@@ -141,7 +142,7 @@ Circle.prototype.display = function(word) {
   angle = TWO_PI / npoints; //Determines the number of points
   halfAngle = angle/2.0; //Evens out the inner angles of where the star meets
   beginShape();
-  for (a = 0; a < TWO_PI; a += angle) //Determines the angle at which the brush will paint 
+  for (a = 0; a < TWO_PI; a += angle)  
   {
     // Sets the outer verticies of the star
     sx = x + cos(a) * radius2;
